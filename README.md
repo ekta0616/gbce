@@ -6,7 +6,7 @@ A Flask-based stock market system for trading beverage company stocks. This app 
 
 ## 📂 Project Structure
 ```plaintext
-gbce_flask/
+gbce/
 │── app.py                 # Main Flask application
 │── stock.py               # Stock and Trade logic
 │── templates/             # HTML templates
