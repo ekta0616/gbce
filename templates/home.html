@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GBCE Stock Market</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Global Beverage Corporation Exchange (GBCE)</h1>
+
+    <p>Welcome to the GBCE stock trading system.</p>
+
+    💲 <a href="{{ url_for('new_trade') }}">Add a Trade</a><br><br>
+    📝 <a href="{{ url_for('record_trade') }}">Record a Trade</a><br><br>
+    📈 <a href="{{ url_for('calculate') }}">Calculate Stock Metrics</a><br><br>
+    📊 <a href="{{ url_for('gbce_index') }}">View GBCE All Share Index</a>
+</body>
+</html>

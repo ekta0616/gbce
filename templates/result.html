@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results | GBCE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Calculation Results</h1>
+
+    {% if message %}
+        <p><strong>{{ message }}</strong></p>
+    {% endif %}
+
+    {% if symbol %}
+        <h2>Stock: {{ symbol }}</h2>
+        <p>Price: ${{ price }}</p>
+        <p>Dividend Yield: {{ dividend_yield }}</p>
+        <p>P/E Ratio: {{ pe_ratio if pe_ratio is not none else 'N/A' }}</p>
+    {% endif %}
+
+    {% if gbce_index is not none %}
+        <h2>GBCE All Share Index</h2>
+        <p>{{ gbce_index }}</p>
+    {% endif %}
+
+    <br>
+    <a href="{{ url_for('home') }}">⬅ Back to Home</a>
+</body>
+</html>

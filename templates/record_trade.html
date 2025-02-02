@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trade Stocks</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Record a Trade</h2>
+
+    <form method="POST">
+        <label for="stock_symbol">Stock Symbol:</label>
+        <select name="stock_symbol" id="stock_symbol" required>
+            <option value="" disabled selected>Select a stock</option>
+            {% for symbol in stock_symbols %}
+                <option value="{{ symbol }}">{{ symbol }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" name="quantity" id="quantity" required>
+
+        <label for="price">Price:</label>
+        <input type="number" name="price" id="price" step="0.01" required>
+
+        <label for="trade_type">Trade Type:</label>
+        <select name="trade_type" id="trade_type" required>
+            <option value="buy">Buy</option>
+            <option value="sell">Sell</option>
+        </select>
+
+        <button type="submit">Submit Trade</button>
+    </form>
+
+    <br>
+
+    <h3>Existing Trades</h3>
+    <table border="1">
+        <tr>
+            <th>Stock Symbol</th>
+            <th>Record</th>
+        </tr>
+        {% for trade in trades %}
+        <tr>
+            <td>{{ trade }}</td>
+            {% if trades[trade].trades %}
+            <td>{{ trades[trade].trades }}</td>
+            {% else %}
+            <td></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+<br>
+    <a href="{{ url_for('home') }}">⬅ Back to Home</a>
+</body>
+</html>
