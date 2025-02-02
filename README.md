@@ -76,9 +76,11 @@ Choose from:
 ### **2️⃣ Add a Trade**
 ```plaintext
 ‣ Enter Stock Symbol
-‣ Choose Buy/Sell
-‣ Enter Quantity & Price
-‣ Submit & View Confirmation
+‣ Choose Stock Type
+‣ Enter Last Dividend
+‣ Enter Par Value
+‣ Enter Fixed Dividend if Stock Type selected is "Preferred"
+‣ Submit Trade
 ```
 
 ### **3️⃣ Record a Trade**
