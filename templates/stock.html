@@ -13,7 +13,7 @@
         <label for="stock_symbol">Stock Symbol:</label>
         <select name="stock_symbol" id="stock_symbol" required>
             <option value="" disabled selected>Select a stock</option>
-            {% for symbol in stock_symbols %}
+            {% for symbol in data %}
                 <option value="{{ symbol }}">{{ symbol }}</option>
             {% endfor %}
         </select>

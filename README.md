@@ -62,7 +62,65 @@ The app will start at http://127.0.0.1:5000/ 🚀
 ---
 
 ## **📌 Usage**
-### **<u>HTML</u>**
+## **<u>API Endpoints</u>**
+### **1️⃣ Home Route**
+```
+📌 GET /
+• Description: Home API to get the details.
+• Response: List of all the stock data.
+```
+
+### **2️⃣ Trade Management**
+```
+📌 POST /new_trade
+• Description: Adds a new trade.
+• Response: List of all the stock data including new trade.
+```
+<b>Request Body (Form Data):<b>
+
+| Parameter      | Type    | Required | Description                        |
+|----------------|---------|----------|------------------------------------|
+| stock_symbol   | string  | ✅ Yes    | Stock symbol (e.g., `ABC`)         |
+| stock_type     | int     | ✅ Yes    | "Common" or "Preferred"            |
+| last_dividend  | float   | ✅ Yes    | dividend value                     |
+| fixed_dividend | float   | ❎ No     | value given if type is "Preferred" |
+| par_value      | integer | ✅ Yes    | value of stock                     |
+
+```
+📌 POST /record_trade
+• Description: Records a trade.
+• Response: List of all the stock data including trade record.
+```
+<b>Request Body (Form Data):<b>
+
+| Parameter     | Type    | Required | Description                      |
+|--------------|--------|----------|----------------------------------|
+| stock_symbol | string | ✅ Yes   | Stock symbol (e.g., `ABC`)       |
+| quantity     | int    | ✅ Yes   | Number of shares traded         |
+| price        | float  | ✅ Yes   | Price per share                 |
+| trade_type   | string | ✅ Yes   | `"buy"` or `"sell"`             |
+
+### **3️⃣ Stock Metrics**
+```
+📌 POST /calculate
+• Description: Calculates Dividend Yield and P/E Ratio for a given stock.
+• Response: Calculated Dividend Yield and P/E Ratio
+```
+<b>Request Body (Form Data):<b>
+
+| Parameter     | Type   | Required | Description                      |
+|--------------|--------|----------|----------------------------------|
+| stock_symbol | string | ✅ Yes   | Stock symbol (e.g., `ABC`)       |
+| price     | float  | ✅ Yes   | Market price for the stock       |
+
+### **4️⃣ GBCE All Share Index**
+```
+📌 GET /share_index
+• Description: Computes the GBCE All Share Index (geometric mean of all stock prices).
+• Response: Returns All Share Index.
+```
+
+## **<u>HTML</u>**
 ### **1️⃣ Home Page**
 ```plaintext
 Go to http://127.0.0.1:5000/

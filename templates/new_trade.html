@@ -8,8 +8,8 @@
     <script type="text/javascript">
          <!--
          function should_display() {
-         var f_d = document.getElementById("fixed_dividend");
-         if (document.forms[0].stock_type.options[document.forms[0].stock_type.selectedIndex].value == "PREFERRED") {
+         var f_d = document.getElementById("fixed_div");
+         if (document.forms[0].stock_type.options[document.forms[0].stock_type.selectedIndex].value == "Preferred") {
          f_d.style.visibility = "visible";
          }
          else {
@@ -27,8 +27,8 @@
 
         <label for="stock_type">Stock Type:</label>
         <select name="stock_type" onchange="should_display()">
-            <option value="COMMON">Common</option>
-            <option value="PREFERRED">Preferred</option>
+            <option value="Common">Common</option>
+            <option value="Preferred">Preferred</option>
         </select><br><br>
 
         <label for="last_dividend">Last Dividend:</label>
@@ -37,7 +37,7 @@
         <label for="par_value">Par Value:</label>
         <input type="number" step="0.01" name="par_value" required><br><br>
 
-        <div id="fixed_dividend" style="visibility: hidden;">
+        <div id="fixed_div" style="visibility: hidden;">
         <label for="fixed_dividend">Fixed Dividend:</label>
         <input type="number" step="0.01" name="fixed_dividend"><br><br>
         </div>

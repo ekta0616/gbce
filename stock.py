@@ -9,7 +9,7 @@ class Stock:
         self.last_dividend = last_dividend
         self.fixed_dividend = fixed_dividend  # Only for Preferred stock
         self.par_value = par_value
-        self.trades = []  # Stores all trades
+        self.trades = []  # Stores all trade records
 
     def calculate_dividend_yield(self, price):
         """Calculate dividend yield based on stock type."""
@@ -63,7 +63,7 @@ class GBCE:
         vwsp_values = [stock.calculate_vwsp() for stock in self.stocks.values() if stock.calculate_vwsp() is not None]
 
         if not vwsp_values:
-            return None  # No VWSP values available
+            return 'Not available'  # No VWSP values available
 
         product = math.prod(vwsp_values)
         return product ** (1 / len(vwsp_values))

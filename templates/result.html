@@ -7,22 +7,48 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Calculation Results</h1>
 
     {% if message %}
-        <p><strong>{{ message }}</strong></p>
+    {% if status != 200 %}
+        <p style="color:red;font-size:200%"><strong>{{ message }}</strong></p>
+    {% endif %}
     {% endif %}
 
-    {% if symbol %}
-        <h2>Stock: {{ symbol }}</h2>
-        <p>Price: ${{ price }}</p>
-        <p>Dividend Yield: {{ dividend_yield }}</p>
-        <p>P/E Ratio: {{ pe_ratio if pe_ratio is not none else 'N/A' }}</p>
-    {% endif %}
+    {% if data.symbol %}
+        <h1>Calculation Results</h1>
+        <h2>Stock: {{ data.symbol }}</h2>
+        <p>Price: ${{ data.price }}</p>
+        <p>Dividend Yield: {{ data.dividend_yield }}</p>
+        <p>P/E Ratio: {{ data.pe_ratio if data.pe_ratio is not none else 'N/A' }}</p>
+    {% else %}
 
-    {% if gbce_index is not none %}
+    {% if data.share_index %}
         <h2>GBCE All Share Index</h2>
-        <p>{{ gbce_index }}</p>
+        <p>{{ data.share_index }}</p>
+    {% else %}
+
+    <h3>Existing Trades</h3>
+    <table border="1">
+        <tr>
+            <th>Stock Symbol</th>
+            <th>Stock Type</th>
+            <th>Last Dividend</th>
+            <th>Fixed Dividend</th>
+            <th>Par Value</th>
+            <th>Record</th>
+        </tr>
+        {% for trade in data %}
+        <tr>
+            <td>{{ trade }}</td>
+            <td>{{ data[trade].stock_type }}</td>
+            <td>{{ data[trade].last_dividend }}</td>
+            <td>{{ data[trade].fixed_dividend }}</td>
+            <td>{{ data[trade].par_value }}</td>
+            <td>{{ data[trade].trades }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
     {% endif %}
 
     <br>

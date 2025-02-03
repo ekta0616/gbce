@@ -13,7 +13,7 @@
         <label for="stock_symbol">Stock Symbol:</label>
         <select name="stock_symbol" id="stock_symbol" required>
             <option value="" disabled selected>Select a stock</option>
-            {% for symbol in stock_symbols %}
+            {% for symbol in data %}
                 <option value="{{ symbol }}">{{ symbol }}</option>
             {% endfor %}
         </select>
@@ -39,16 +39,20 @@
     <table border="1">
         <tr>
             <th>Stock Symbol</th>
+            <th>Stock Type</th>
+            <th>Last Dividend</th>
+            <th>Fixed Dividend</th>
+            <th>Par Value</th>
             <th>Record</th>
         </tr>
-        {% for trade in trades %}
+        {% for trade in data %}
         <tr>
             <td>{{ trade }}</td>
-            {% if trades[trade].trades %}
-            <td>{{ trades[trade].trades }}</td>
-            {% else %}
-            <td></td>
-            {% endif %}
+            <td>{{ data[trade].stock_type }}</td>
+            <td>{{ data[trade].last_dividend }}</td>
+            <td>{{ data[trade].fixed_dividend }}</td>
+            <td>{{ data[trade].par_value }}</td>
+            <td>{{ data[trade].trades }}</td>
         </tr>
         {% endfor %}
     </table>
