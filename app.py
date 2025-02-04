@@ -65,7 +65,10 @@ def new_trade():
         symbol = request.form['stock_symbol']
         stock_type = request.form['stock_type']
         last_dividend = request.form['last_dividend']
-        fixed_dividend = request.form['fixed_dividend']
+        if 'fixed_dividend' in request.form:
+            fixed_dividend = request.form['fixed_dividend']
+        else:
+            fixed_dividend = None
         par_value = request.form['par_value']
         template = 'result.html'
 
