@@ -27,11 +27,11 @@ gbce/
 ---
 
 ## **🚀 Features**
+✅ **Add new Trades**  
 ✅ **Record Trades** (Buy/Sell with timestamp, quantity, and price)  
-✅ **Calculate Stock Metrics**  
-✅ **Volume Weighted Stock Price** (Based on trades in the last 5 minutes)  
+✅ **Calculate Stock Metrics**   
 ✅ **Compute GBCE All Share Index** (Geometric mean of all stock prices)  
-✅ **Unit Tests for Routes & Models**  
+✅ **Unit Tests**  
 
 ---
 
