@@ -31,7 +31,7 @@ gbce/
 ✅ **Record Trades** (Buy/Sell with timestamp, quantity, and price)  
 ✅ **Calculate Stock Metrics**   
 ✅ **Compute GBCE All Share Index** (Geometric mean of all stock prices)  
-✅ **Unit Tests for Routes & Models**  
+✅ **Unit Tests**  
 
 ---
 
