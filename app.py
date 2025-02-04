@@ -113,10 +113,12 @@ def calculate():
         stock = gbce.stocks[symbol]
         dividend_yield = stock.calculate_dividend_yield(price)
         pe_ratio = stock.calculate_pe_ratio(price)
+        vwsp = stock.calculate_vwsp()
         data['symbol'] = symbol
         data['price'] = price
         data['dividend_yield'] = dividend_yield
         data['pe_ratio'] = pe_ratio
+        data['vwsp'] = vwsp
         template = 'result.html'
     else:
         data = get_home_data()

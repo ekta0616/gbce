@@ -20,6 +20,7 @@
         <p>Price: ${{ data.price }}</p>
         <p>Dividend Yield: {{ data.dividend_yield }}</p>
         <p>P/E Ratio: {{ data.pe_ratio if data.pe_ratio is not none else 'N/A' }}</p>
+        <p>Volume Weighted Stock Price: {{ data.vwsp if data.vwsp is not none else 'N/A' }}</p>
     {% else %}
 
     {% if data.share_index %}
