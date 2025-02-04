@@ -102,7 +102,7 @@ def test_calculate_stock_metrics(client):
         "stock_symbol": "POP",
         "price": 50.0
     })
-    expected_response = b'{"symbol": "POP", "price": 50.0, "dividend_yield": 0.16, "pe_ratio": 6.25}'
+    expected_response = b'{"symbol": "POP", "price": 50.0, "dividend_yield": 0.16, "pe_ratio": 6.25, "vwsp": null}'
     assert response.status_code == 200
     assert response.data == expected_response
 
