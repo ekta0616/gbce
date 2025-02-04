@@ -70,7 +70,7 @@ def new_trade():
         template = 'result.html'
 
         if symbol in gbce.stocks:
-            msg = 'Trade "{}" already added!'.format(symbol)
+            msg = 'Trade "{}" already exists!'.format(symbol)
             status = const.CONFLICT
         else:
             gbce.add_stock(Stock(symbol, stock_type, last_dividend, par_value, fixed_dividend))
@@ -88,11 +88,12 @@ def record_trade():
         quantity = int(request.form['quantity'])
         trade_type = request.form['trade_type']
         price = float(request.form['price'])
+        if symbol not in gbce.stocks:
+            return send_response(request.headers, None, "Stock not found!", const.NOT_FOUND, template=template)
 
-        if symbol in gbce.stocks:
-            gbce.stocks[symbol].record_trade(quantity, trade_type, price)
-            msg = 'Trade recorded successfully.'
-            template = 'result.html'
+        gbce.stocks[symbol].record_trade(quantity, trade_type, price)
+        msg = 'Trade recorded successfully.'
+        template = 'result.html'
 
     return send_response(request.headers, get_home_data(), msg, template=template)
 
@@ -104,6 +105,8 @@ def calculate():
         symbol = request.form['stock_symbol']
         price = float(request.form['price'])
         data = dict()
+        if symbol not in gbce.stocks:
+            return send_response(request.headers, None, "Stock not found!", const.NOT_FOUND, template=template)
         stock = gbce.stocks[symbol]
         dividend_yield = stock.calculate_dividend_yield(price)
         pe_ratio = stock.calculate_pe_ratio(price)
